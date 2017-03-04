@@ -9,7 +9,16 @@ app needs.
 ## Getting Started
 
 ### Setup
-Make sure Python, Flask and sqlite3 are installed on your machine.
+Make sure Python, Flask, curl and sqlite3 are installed on your machine.
+```
+pip install flask
+```
+
+### Testing
+Use this command to test responses:
+```
+curl -i http://localhost:5000/
+```
 
 ### Configuration
 Edit config.ini to change any configurations

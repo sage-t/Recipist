@@ -8,7 +8,7 @@
 # 
 # Created by Sage Thomas 2/20/2017
 
-from flask import Flask, jsonify, abort, make_response
+from flask import Flask, jsonify, abort, make_response, request
 
 app = Flask(__name__)
 
@@ -132,9 +132,13 @@ def search_recipes():
 # ex: '/recipes/search?name=chicken' --> search for ingredients with 'chicken' in the name
 @app.route('/ingredients/search', methods=['GET'])
 def search_ingredients():
-  name = request.args.get('name')
-  
-  return None
+  name = request.args.get('name').lower()
+  ingr = {}
+  for ingredient in ingredients:
+    if ingredient['name'].lower() == name:
+      ingr = ingredient
+
+  return jsonify(ingr)
 
 # Update recipes 'like' count
 # ex: '/recipes?id=1&like=1' --> add 1 like to recipe with id 1
