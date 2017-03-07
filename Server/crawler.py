@@ -37,9 +37,22 @@ def clean_ingredients(raws):
     'cleaned', 'cleaned', 'husked', 'extra', 'segment', 'head', 'pint', 
     'prepared', 'imitation', 'minced', 'or', 'a', 'needed', 'to', 'taste', 
     'stalk', 'dried', 'processed', 'fresh', 'granular', 'small', 'bulk', 
-    'cored', 'trimmed', '-', 'spear', 'thawed', 'cubed', 'bag']
+    'cored', 'trimmed', '-', 'spear', 'thawed', 'cubed', 'bag', 'separated',
+    'floret', 'dijon', 'granule', 'rinsed', 'packet', 'margarine', 'freshly',
+    'seeded', 'green', 'uncooked', 'firm', 'mini', 'piece', 'crushed', 
+    'crumbled', 'dash', 'cube', 'ground', 'pitted', 'chilled', 'old-fashioned',
+    'individual', 'per', 'serving', 'dark', 'salted', 'unsalted', 'unbleached',
+    'crumb', 'rolled', 'breast', 'liter', 'tm', 'cut', 'into', 'chunk', 
+    'thinly', 'more', 'if', 'brewed', 'including', 'top', 'wedge', 'juiced',
+    'in', 'square', 'snapped', 'sharp', 'bunch', 'very', 'chicken-flavored',
+    'day-old', 'nutritional']
   black_list_phrases = ['or to taste', 'for decoration', 'extra firm', 
-    'per serving', 'for garnish']
+    'for garnish', 'with seasoning', 'of choice', 'juice of', 'any flavor']
+  synonyms = {'ramen noodle': 'ramen', 'ranch salad dressing': 'ranch'}
+  plurals = {'cookies': 'cookie', 'tomatoes': 'tomato', 'potatoes': 'potato',
+    'chilies': 'chili'}
+  exceptions = {'hot': 'hot dog', 'ground': 'ground beef', 
+    'green': 'green chilies'}
   cleaned = []
   for raw in raws:
     clean = ''
@@ -58,37 +71,70 @@ def clean_ingredients(raws):
       i += 1
 
     # get rid of "(" and ")" stuff inside
-    start = 0
-    for i in range(0, len(raw)):
-      if raw[i] == '(':
+    start = -1
+    i = 0
+    while i < len(raw):
+      if start == -1 and raw[i] == '(':
         start = i
-      elif raw[i] == ')':
+      elif start != -1 and raw[i] == ')':
         raw = raw[:start] + raw[i+1:]
-        break
+        start = -1
+        i = 0
+      i += 1
+    
+    # Get rid of worthless phrases
+    for phrase in black_list_phrases:
+      if phrase in raw:
+        raw = raw.replace(phrase, '')
 
-    # get rid of black_list words (including plurals and commas)
     raw = raw.strip()
     words = raw.split(' ')
+    old_raw = raw
     raw = ''
-    for word in words:
+
+    i = 0
+    while i < len(words):
+      word = words[i]
+      # Get rid of punctuation
       word = word.replace(',', '')
       word = word.replace("'", '')
+      word = word.replace('.', '')
+
+      # If exception, do nothing more
+      if word in exceptions:
+        if exceptions[word] in old_raw:
+          raw += word + ' '
+          next
+
+      # Convert common plurals
+      if word in plurals:
+        word = plurals[word]
+
+      # Attempt to convert other plurals
       try:
         if word[-1] == 's':
           word = word[:-1]
           if word[-2:] == 'ie':
             word = word[:-2] + 'y'
       except:
-        print "May havd failed to to test " + word + " for issues"
+        print "May have failed to to test " + word + " for issues"
+          
       if word not in black_list:
         raw += word + ' '
+      i += 1
 
-    for phrase in black_list_phrases:
-      if phrase in raw:
-        raw = raw.replace(phrase, '')
+    # Replace synonyms to most common word/phrase
+    for syn in synonyms:
+      if syn in raw:
+        raw = raw.replace(syn, synonyms[syn])
 
-    raw = raw.strip()
-    cleaned.append(raw)
+    raw = raw.strip().replace('  ', ' ')
+    # if an ingredient is salt and pepper, change to two ingredients
+    if 'salt' in raw and 'pepper' in raw:
+      cleaned.append('salt')
+      cleaned.append('pepper')
+    else:
+      cleaned.append(raw)
 
   cleaned = list(set(cleaned))
   return cleaned
@@ -114,7 +160,9 @@ for p in range(1, 21):
 links = list(set(links))
 # links = ['http://allrecipes.com/recipe/44699/chocolate-cornstarch-pudding/']
 
+# Not used or working ATM
 def remove_non_ascii(s): return "".join(i for i in s if ord(i)<128)
+
 # Make list of recipes
 recipes = []
 for link in links:
@@ -122,12 +170,15 @@ for link in links:
   page = requests.get(link)
   tree = html.fromstring(page.content)
 
-  recipe.name = remove_non_ascii(tree.xpath('//h1/text()')[0]).encode('ascii', 'ignore').decode('ascii')
-  recipe.ingredients = clean_ingredients(tree.xpath('//span[@itemprop="ingredients"]/text()'))
-  recipe.url = remove_non_ascii(link).encode('ascii', 'ignore').decode('ascii')
-  recipe.image_url = remove_non_ascii(tree.xpath('//img[@class="rec-photo"]/@src')[0]).encode('ascii', 'ignore').decode('ascii')
-  print recipe
-  recipes.append(recipe)
+  try:
+    recipe.name = tree.xpath('//h1/text()')[0].replace(',', '').strip()
+    recipe.ingredients = clean_ingredients(tree.xpath('//span[@itemprop="ingredients"]/text()'))
+    recipe.url = link
+    recipe.image_url = tree.xpath('//img[@class="rec-photo"]/@src')[0]
+    print recipe
+    recipes.append(recipe)
+  except Exception,e:
+    print 'Error creating recipe: ' + str(e)
 
 # Save recipes to CSV
 f = open('recipes.csv', 'w')
