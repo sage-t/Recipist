@@ -26,6 +26,10 @@ insert into ingredients values (6, 'salt');
 insert into ingredients values (7, 'tomato');
 insert into ingredients values (8, 'tomato paste');
 insert into ingredients values (9, 'salt');
+insert into ingredients values (10, 'eggs');
+insert into ingredients values (11, 'noodles');
+insert into ingredients values (12, 'cheese');
+
 
 insert into relations values (1, 1);
 insert into relations values (1, 2);
@@ -35,4 +39,12 @@ insert into relations values (1, 5);
 insert into relations values (1, 6);
 insert into relations values (1, 7);
 insert into relations values (1, 8);
-insert into relations values (1, 9); 
+insert into relations values (1, 9);
+insert into relations values (1, 10);
+insert into relations values (1, 11);
+insert into relations values (1, 12);
+
+
+
+
+
