@@ -1,22 +1,22 @@
 Use case name
-    Verify login with valid user name and password
+    Verify REST name search function
 Description
-    Test the Google login page
+    Test the server function that finds recipes with a given name and returns
+    the recipes in JSON form.
 Pre-conditions
-    User has valid user name and password
+    Server is running and has a row with the recipe name 'American Lasagna'
 Test steps
-    1. Navigate to login page
-    2. Provide valid user name
-    3. Provide valid password
-    4. Click login button
+    1. Navigate to 'http://recipist-csci3308.herokuapp.com'
+    2. Add the url variable '/?name=American Lasagna'
+    3. Hit 'Enter'
 Expected result
-    User should be able to login
+    A JSON object should have been returned with an id, name, image_url, and
+    url value
 Actual result
-    User is navigated to dashboard with successful login
+    A JSON object is returned with an id, name, image_url, and url value
 Status (Pass/Fail)
     Pass
 Notes
-    N/A
+    Currently the name has to be exact, this will be changed later
 Post-conditions
-    User is validated with database and successfully signed into their account.
-    The account session details are logged in database.
+    No server errors have occured
