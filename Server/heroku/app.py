@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 
 #queries the postgres database for recipes by ingredient names
-# ex: '/search?name=banana,butter' --> search for recipes that contain banana or butter(or both) 
+# ex: '/search?ingrds=banana,butter' --> search for recipes that contain banana or butter(or both) 
 @app.route('/search')
 def search():
     name = request.args.get('ingrds')
