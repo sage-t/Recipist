@@ -15,7 +15,30 @@ conn = psycopg2.connect(
     port = url.port
 )
 
+
+
 app = Flask(__name__)
+
+
+#queries the postgres database for recipes by ingredient names
+# ex: '/search?name=banana,butter' --> search for recipes that contain banana or butter(or both) 
+@app.route('/search')
+def search():
+    name = request.args.get('ingrds')
+    ingrds_split = name.split(",")
+    
+    cur = conn.cursor()
+    jsons = []
+    
+    for ingrd in ingrds_split:
+        cur.execute("""SELECT id from ingredients WHERE name = '%s'""" % ingrd)
+        ingrd_id = cur.fetchone()         
+        if ingrd_id != None:
+           cur.execute("""SELECT * from recipes WHERE id IN (SELECT r_id from relations WHERE i_id = '%s')""" % ingrd_id)
+           for row in cur.fetchall():
+              jsons.append({'Name': str(row[1]), 'Id': str(row[0]), 'image_url': str(row[2]), 'url': str(row[3]), 'Matching ingredient': ingrd})
+    return jsonify(jsons)
+
 
 @app.route('/')
 def home():
@@ -26,7 +49,7 @@ def home():
     jsons = []
     for row in cur.fetchall():
         # jsons.append({'Name': str(cur.fetchone()[1]), 'Id': str(cur.fetchone()[0]), 'url': str(cur.fetchone()[2])})
-        jsons.append({'Name': str(row[1]), 'Id': str(row[0]), 'url': str(row[2])})
+        jsons.append({'Name': str(row[1]), 'Id': str(row[0]), 'image_url': str(row[2]), 'url': str(row[3]) })
     
     return jsonify(jsons)
     # return(jsonify(str(cur.fetchone()[1])))
