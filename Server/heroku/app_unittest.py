@@ -40,7 +40,7 @@ class AppTest(unittest.TestCase):
     self.assertTrue(self.is_json(self.get_json('http://recipist-csci3308.herokuapp.com')))
 
   def test_search_is_json(self):
-    self.assertTrue(self.is_json(self.get_json('http://recipist-csci3308.herokuapp.com/search?name=banana')))
+    self.assertTrue(self.is_json(self.get_json('http://recipist-csci3308.herokuapp.com/search?ingrds=banana')))
 
 if __name__ == '__main__':
   unittest.main()
