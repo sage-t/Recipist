@@ -3,7 +3,6 @@ import psycopg2
 import urlparse
 
 from flask import Flask, jsonify, request
-from jinja2 import Template
 
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
