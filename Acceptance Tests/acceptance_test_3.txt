@@ -1,22 +1,24 @@
 Use case name
-    Verify login with valid user name and password
+    Verify search bars and button function 
 Description
-    Test the Google login page
+    Test button and search bar
 Pre-conditions
-    User has valid user name and password
+    User has valid search inputs
 Test steps
-    1. Navigate to login page
-    2. Provide valid user name
-    3. Provide valid password
-    4. Click login button
+    1. Open the app
+    2. Press available button
+    3. Search Bar page shows up, enter inputs
+    4. Click search button
 Expected result
-    User should be able to login
+    User should be navigated to another page with list of search results
 Actual result
-    User is navigated to dashboard with successful login
+    User is navigated to a blank page.
 Status (Pass/Fail)
-    Pass
+    Fail
 Notes
     N/A
 Post-conditions
-    User is validated with database and successfully signed into their account.
-    The account session details are logged in database.
+    Expected:
+    User is on a list of search results and able to continue into each result as a page by itself.
+    Actual:
+    User is now stuck on a blank page because the search bar is not successfully linked into the database search function.
