@@ -1,22 +1,26 @@
 Use case name
-    Verify login with valid user name and password
+    Test "Search" function
+
 Description
-    Test the Google login page
+    With this test, we will be searching for recipes by ingredient name.
+
 Pre-conditions
-    User has valid user name and password
+    The app needs to be deployed to the web and be able to run. The URL is: https://recipist-csci3308.herokuapp.com/
+
 Test steps
-    1. Navigate to login page
-    2. Provide valid user name
-    3. Provide valid password
-    4. Click login button
+    1. Navigate to the URL of our app: https://recipist-csci3308.herokuapp.com/
+    2. Navigate to the search function of our app by: https://recipist-csci3308.herokuapp.com/search
+    3. Add ingredients names to the search function by doing /search?ingrds=ingrd1,ingrd2
+
 Expected result
-    User should be able to login
+    If any of the recipes in the postgres database contain the ingredients thatwe searched for, a json object will be displayed on the page with information about the recipe id, recipe name, recipe url, and image url.
+
 Actual result
-    User is navigated to dashboard with successful login
+    We searched for the ingredient "banana", and it displayed json objecs of the recipes that contained "banana," along with the info about the recipe.
+
 Status (Pass/Fail)
     Pass
-Notes
-    N/A
+
 Post-conditions
-    User is validated with database and successfully signed into their account.
-    The account session details are logged in database.
+    There are no errors, and the json object displays correctly.
+~                                                                   
