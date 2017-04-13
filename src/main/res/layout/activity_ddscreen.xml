@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     tools:context="potatoteam.yumyum.DDscreen">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Common Ingredients"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
-
     <Button
         android:id="@+id/but2"
         style="@style/Widget.AppCompat.Button.Colored"
@@ -35,4 +21,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintVertical_bias="0.501"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:imeOptions="actionSend"
+        tools:layout_editor_absoluteY="134dp"
+        tools:layout_editor_absoluteX="0dp" />
 </android.support.constraint.ConstraintLayout>
