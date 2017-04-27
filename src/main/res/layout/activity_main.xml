@@ -2,27 +2,42 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layou1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pots"
-    tools:context="potatoteam.yumyum.Main">
+    tools:context="qzd919.recipist.MainActivity">
 
-    <Button
-        android:id="@+id/but1"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="368dp"
+    <EditText
+        android:id="@+id/ingredientText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Common Ingredients"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="230dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintVertical_bias="0.0"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter Ingredient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:imeOptions="actionDone"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+    <Button
+        android:id="@+id/queryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:text="Search"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientText"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/responseView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.constraint.ConstraintLayout>
