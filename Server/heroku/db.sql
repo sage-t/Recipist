@@ -17,7 +17,7 @@ create table if not exists relations(
 
 insert into recipes values (1, 'American Lasagna', 'http://images.media-allrecipes.com/userphotos/600x600/566639.jpg', 'http://allrecipes.com/recipe/11729/american-lasagna/');
 insert into recipes values (2, 'Banana Sour Cream Bread', 'http://images.media-allrecipes.com/userphotos/720x405/262277.jpg', 'http://allrecipes.com/recipe/6984/banana-sour-cream-bread/');
-insert into recipes values (3, 'Sweet Potato Chili', 'http://images.media-allrecipes.com/userphotos/720x405/903799.jpg', 'http://allrecipes.com/recipe/6984/banana-sour-cream-bread/');
+insert into recipes values (3, 'Sweet Potato Chili', 'http://images.media-allrecipes.com/userphotos/720x405/903799.jpg', 'http://allrecipes.com/recipe/229081/sweet-potato-chili/');
 
 insert into ingredients values (1, 'onion');
 insert into ingredients values (2, 'garlic');
