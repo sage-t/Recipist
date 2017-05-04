@@ -1,0 +1,54 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  background-image: url(/assets/restaurant_icons.png);
+  /*background-repeat: repeat-y;*/
+}
+
+.title {
+  color: #585c65;
+}
+
+.title:hover, .title:visited, .title:link, .title:active {
+  text-decoration: none;
+}
+
+.title:hover {
+  color: #484c54;
+}
+
+.delete {
+  background-color: #FAF2AD;
+}
+
+.delete:hover {
+    background: rgba(84, 84, 84, 0.1);
+}
+
+.list-group-item
+{
+  overflow:hidden;  
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  border: 1px solid #ddd;
+  font-size: 20px;
+  background-color: #FAF2AD;
+  border-color: #5e9bff;
+  color: #585c65;
+}

@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="col-md-4">
+    <a href="/" class="title">
+      <h1 style="font-family: 'Cookie', cursive; font-size: 130px">Recipist</h1>
+    </a>
+    </br>
+    <%= render 'form' %>
+  </div>
+
+  <div class="col-md-4" style="margin-top: 100px">
+    <% @recipes.each.with_index do |r,i| %>
+      <% next if not i.even? %>
+      <div class="thumbnail">
+        <a href="<%= r.url %>" target="_blank"><img src="<%= r.image %>" alt="<%= r.name %>"></a>
+        <div class="caption">
+          <h3><%= r.name %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-4" style="margin-top: 100px">
+    <% @recipes.each.with_index do |r,i| %>
+      <% next if i.even? %>
+      <div class="thumbnail">
+        <a href="<%= r.url %>" target="_blank"><img src="<%= r.image %>" alt="<%= r.name %>"></a>
+        <div class="caption">
+          <h3><%= r.name %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+</div>

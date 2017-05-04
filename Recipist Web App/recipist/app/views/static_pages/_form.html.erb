@@ -1,0 +1,107 @@
+<div class="input-group">
+  <input class="form-control input-lg" placeholder="Ingredient" id="ingredient" type="text" name="ingr">
+  <div class="input-group-btn">
+    <button class="btn btn-default btn-lg" id="add_ingr" type="button">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+    <button class="btn btn-default btn-lg" id="search_button" type="button">
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>
+
+<ul id="list" class="list-group">
+</ul> 
+
+<script>
+var ingredients = new Array();
+
+$( document ).ready(function() {
+  initialize();
+  $("#ingredient").focus();
+});
+
+function initialize() {
+  raw_ingredients = []
+  <% @ingredients.each do |ingr| %>
+  raw_ingredients.push("<%= ingr %>");
+  <% end %>
+
+  // Get rid of duplicates
+  $.each(raw_ingredients, function(i, el){
+    if($.inArray(el, ingredients) === -1) ingredients.push(el);
+  });
+
+  var i;
+  for (i = 0; i < ingredients.length; i++) {
+    var ingr_name = ingredients[i]
+    $("#list").append(createIngredientListItem(ingr_name));
+  }
+}
+
+function startSearch() {
+  window.location.replace("/search?ingrs=" + ingredients.join(','));
+}
+
+function addIngredient() {
+  var ingr_name = $("#ingredient").val();
+  if (ingr_name != "") {
+    var new_ingr = createIngredientListItem(ingr_name).hide();
+    $("#list").append(new_ingr);
+    new_ingr.show('normal');
+
+    ingredients.push(ingr_name);
+    $("#ingredient").val("");
+    $("#ingredient").focus();
+  }
+}
+
+function createIngredientListItem(name) {
+  return $("<li id='" + name + 
+    "' class='list-group-item list-group-item-warning'><b>" + titleCase(name) + 
+    "</b><button id='" + name + "_d' style='float: right;' class='btn btn-sm delete' type='button'>" +
+    "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>" +
+    "</button></li>");
+}
+
+function titleCase(str) {
+  str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  }
+  return str.join(' ');
+}
+
+$('#ingredient').keypress(function (e) {
+  if (e.which == 13) {
+    if ($("#ingredient").val() != "") {
+      addIngredient();
+    } else {
+      startSearch();
+    }
+  }
+});
+
+$("#search_button").click(function() {
+  startSearch();
+});
+
+$("#add_ingr").click(function() {
+  addIngredient();
+});
+
+// Delete button
+$("ul").on("click", "button.delete", function(event){
+  var id = event.target.id.split("_")[0];
+
+  // remove from array
+  var index = ingredients.indexOf(id);
+  while (index != -1) {
+    ingredients.splice(index, 1);
+    index = ingredients.indexOf(id);
+  }
+
+  // remove from html list
+  $("#" + id).remove();
+});
+</script>
