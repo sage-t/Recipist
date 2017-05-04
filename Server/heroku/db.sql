@@ -387,6 +387,10 @@ insert into recipes values (369, 'Pumpkin Oatmeal', 'http://images.media-allreci
 insert into recipes values (370, 'Cajun-Spiced Popcorn', 'http://images.media-allrecipes.com/userphotos/560x315/1184177.jpg', 'http://allrecipes.com/recipe/149548/cajun-spiced-popcorn/');
 insert into recipes values (371, 'Southern Chess Squares', 'http://images.media-allrecipes.com/userphotos/560x315/4103585.jpg', 'http://allrecipes.com/recipe/21681/southern-chess-squares/');
 insert into recipes values (372, 'Dry Onion Soup Mix', 'http://images.media-allrecipes.com/userphotos/250x250/877716.jpg', 'http://allrecipes.com/recipe/217155/dry-onion-soup-mix/');
+insert into recipes values (373, 'American Lasagna', 'http://images.media-allrecipes.com/userphotos/600x600/566639.jpg', 'http://allrecipes.com/recipe/11729/american-lasagna/');
+insert into recipes values (375, 'Banana Sour Cream Bread', 'http://images.media-allrecipes.com/userphotos/720x405/262277.jpg', 'http://allrecipes.com/recipe/6984/banana-sour-cream-bread/');
+insert into recipes values (376, 'Sweet Potato Chili', 'http://images.media-allrecipes.com/userphotos/720x405/903799.jpg', 'http://allrecipes.com/recipe/229081/sweet-potato-chili/');*/
+
 
 insert into ingredients values (1, 'vegetable oil');
 insert into ingredients values (2, 'orange');
@@ -1082,6 +1086,8 @@ insert into ingredients values (691, 'celery seed');
 insert into ingredients values (692, 'low-sodium beef bouillon');
 insert into ingredients values (693, 'parsley flake');
 insert into ingredients values (694, 'onion flake');
+insert into ingredients values (695, 'asparagus');
+insert into ingredients values (696, 'chili');
 
 insert into relations values (1, 1);
 insert into relations values (1, 2);
@@ -3619,3 +3625,26 @@ insert into relations values (372, 47);
 insert into relations values (372, 692);
 insert into relations values (372, 693);
 insert into relations values (372, 694);
+insert into relations values (373, 27);
+insert into relations values (373, 87);
+insert into relations values (373, 115);
+insert into relations values (373, 408);
+insert into relations values (373, 4);
+insert into relations values (373, 21);
+insert into relations values (373, 84);
+insert into relations values (373, 36);
+insert into relations values (373, 120);
+insert into relations values (374, 4);
+insert into relations values (374, 307);
+insert into relations values (374, 8);
+insert into relations values (374, 84);
+insert into relations values (374, 486);
+insert into relations values (374, 616);
+insert into relations values (374, 21);
+insert into relations values (375, 48);
+insert into relations values (375, 14);
+insert into relations values (375, 27);
+insert into relations values (375, 33);
+insert into relations values (375, 21);
+insert into relations values (375, 15);
+insert into relations values (375, 87);
