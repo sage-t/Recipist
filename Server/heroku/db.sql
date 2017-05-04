@@ -17,7 +17,7 @@ create table if not exists relations(
 
 insert into recipes values (1, 'American Lasagna', 'http://images.media-allrecipes.com/userphotos/600x600/566639.jpg', 'http://allrecipes.com/recipe/11729/american-lasagna/');
 insert into recipes values (2, 'Banana Sour Cream Bread', 'http://images.media-allrecipes.com/userphotos/720x405/262277.jpg', 'http://allrecipes.com/recipe/6984/banana-sour-cream-bread/');
-insert into recipes values (3, 'Sweet Potato Chili', 'http://images.media-allrecipes.com/userphotos/720x405/903799.jpg', 'http://allrecipes.com/recipe/229081/sweet-potato-chili/');
+insert into recipes values (3, 'Sweet Potato Chili', 'http://images.media-allrecipes.com/userphotos/720x405/903799.jpg', 'http://allrecipes.com/recipe/229081/sweet-potato-chili/');*/
 insert into recipes values (4, 'Shrimp Scampi with Pasta', 'http://images.media-allrecipes.com/userphotos/600x600/2606852.jpg', 'http://allrecipes.com/recipe/229960/shrimp-scampi-with-pasta/');
 insert into recipes values (5, 'Chicken Francesa', 'http://images.media-allrecipes.com/userphotos/720x405/2179438.jpg', 'http://allrecipes.com/recipe/241716/chicken-francesa/');
 insert into recipes values (6, 'Farmer Casserole', ' http://images.media-allrecipes.com/userphotos/250x250/159442.jpg', 'http://allrecipes.com/recipe/22454/farmers-casserole/');
@@ -28,7 +28,7 @@ insert into recipes values (10, 'Oven-Roasted Asparagus', 'http://images.media-a
 
 insert into ingredients values (1, 'onion');
 insert into ingredients values (2, 'garlic');
-insert into ingredients values (3, 'basil');
+insert into ingredients values (3, 'basil');*/
 insert into ingredients values (4, 'sugar');
 insert into ingredients values (5, 'oregano');
 insert into ingredients values (6, 'salt');
@@ -56,17 +56,17 @@ insert into ingredients values (27, 'ground beef');
 insert into ingredients values (28, 'chili');
 insert into ingredients values (29, 'shrimp');
 insert into ingredients values (30, 'lemon');
-insert into ingredients values (31, 'olive oil')
-insert into ingredients values (32, 'pasta')
-insert into ingredients values (33, 'chicken breast')
-insert into ingredients values (34, 'milk')
-insert into ingredients values (35, 'white wine')
-insert into ingredients values (36, 'ham')
-insert into ingredients values (37, 'carrot')
-insert into ingredients values (38, 'salsa')
-insert into ingredients values (39, 'vinegar')
-insert into ingredients values (40, 'soy sauce')
-insert into ingredients values (41, 'asparagus')
+insert into ingredients values (31, 'olive oil');
+insert into ingredients values (32, 'pasta');
+insert into ingredients values (33, 'chicken breast');
+insert into ingredients values (34, 'milk');
+insert into ingredients values (35, 'white wine');
+insert into ingredients values (36, 'ham');
+insert into ingredients values (37, 'carrot');
+insert into ingredients values (38, 'salsa');
+insert into ingredients values (39, 'vinegar');
+insert into ingredients values (40, 'soy sauce');
+insert into ingredients values (41, 'asparagus');
 
 insert into relations values (1, 1);
 insert into relations values (1, 2);
