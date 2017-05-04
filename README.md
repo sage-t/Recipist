@@ -8,10 +8,15 @@
 * Qiu Duan - qidu0919
 
 ## Description
-We will develop an android phone app which helps you find recipes that are catered exactly to the ingredients and appliances available to you.
+Recipist is a Web and Android application that helps college students find 
+recipes to make using the ingredients that they currently have. The app records
 
 ## Vision Statement
-Make cooking less of a chore.
+Make cooking less of a chore by reducing trips to the grocery store.
+
+## See for yourself
+* [Web App](https://recipist-site.herokuapp.com/)
+* [Web API](http://recipist-csci3308.herokuapp.com/search?ingrds=salt,butter)
 
 ## Motivation
 We have the issue of not knowing what food we can make with the ingredients on hand most nights a week. This app will help us alleviate some of our pain by searching for and displaying a diversity of food to make.
