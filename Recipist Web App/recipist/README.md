@@ -1,17 +1,24 @@
 # README
 
-* Ruby version 2.3.1
+## Recipist Web App
+Created by Sage Thomas
 
-* System dependencies
+Visit the web app [here](https://recipist-site.herokuapp.com/)
 
-* Configuration
+### File/Directories that I created
+* app\assets\stylesheets\application.css
+* app\controllers\static_pages_controller.rb
+* app\helpers\static_pages_helper.rb
+* app\views\layouts\application.html.erb
+* app\views\static_pages\
 
-* Database creation
+### Features
+* Cookies remember ingredients that user has
+* Responsive design for desktops/laptops/mobile
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+### Versions and Dependencies
+* Ruby 2.3+
+* Rails 5+
+* Jquery 3.2.1
+* Bootstrap 3
+* Google Cookie font
