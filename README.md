@@ -1,4 +1,4 @@
-#  Project Recipist
+#  Project Recipist [Final Submission]
 
 ### People
 * Sage Thomas - ScienceSage
@@ -6,6 +6,16 @@
 * Amulya Srivastava - amsr2031
 * Victoria Soesanto - viso4661
 * Qiu Duan - qidu0919
+
+## Repo Organization
+* /Acceptance Tests/ contains tests and links to other tests
+* /Recipist Android App/ contains the main stable source for the Android app
+* /Recipist Web App/ contains the Rails app and a small README describing it
+* /Server/database_builder/ contains a script to make the db file for the API
+* /Server/heroku/ contains the Flask API and db file that runs on heroku
+* /Server/old_server/ contains the old test Flask API
+* /Server/recipe_web_crawler/ contains a web crawler script that aggregates recipes from the internet to be used in the API
+* /src/ contains the old Android App source
 
 ## Description
 Recipist is a Web and Android application that helps college students find 
