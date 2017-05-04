@@ -9,8 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -21,13 +25,13 @@ public class MainActivity extends AppCompatActivity { //search for ingredients f
 
     EditText ingredientText;
     TextView responseView;
-    // this text view is just to check if json object is correctly fetched, uncomment line 104 to text.
 
     String ingredient;
     //ProgressBar progressBar;
     //static final String API_KEY = "USE_YOUR_OWN_API_KEY";
     static final String API_URL = "http://recipist-csci3308.herokuapp.com/search?ingrds=";
     // noticed the api only takes in lower-case words
+    //multi-search only matches 1 ingredient
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +63,10 @@ public class MainActivity extends AppCompatActivity { //search for ingredients f
         }
 
         protected String doInBackground(Void... urls) {
-            try { // get the json object then pack it into a bundle to send it to the display result page
+            try {
                 URL url = new URL(API_URL + ingredient);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                try { //
+                try {
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                     StringBuilder stringBuilder = new StringBuilder();
                     String line;
@@ -81,9 +85,12 @@ public class MainActivity extends AppCompatActivity { //search for ingredients f
                     Intent intent = (new Intent(MainActivity.this, ResultPage.class));
                     Bundle b = new Bundle();
                     b.putString("RawJSON", stringBuilder.toString());
+
+                    //String currentSong = myPlayerService.getTitle();
+                    //b.putString("song's name", currentSong);
                     intent.putExtras(b);
                     startActivity(intent);
-                    //packed array into bundle and added to new activity
+
                     return stringBuilder.toString();
                 }
                 finally{
@@ -95,13 +102,13 @@ public class MainActivity extends AppCompatActivity { //search for ingredients f
                 return null;
             }
         }
-        // some error handling so it wont crash immediately when running into an error
+        // some error handling
         protected void onPostExecute(String response) {
             if(response == null) {
                 response = "THERE WAS AN ERROR";
             }
             Log.i("INFO", response);
-           // responseView.setText(response);
+            responseView.setText(response);
 
         }
     }

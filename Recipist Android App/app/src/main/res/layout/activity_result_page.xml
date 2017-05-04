@@ -3,8 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="5dip"
-    android:background="@drawable/lul" >
+    android:padding="5dip" >
 
     <LinearLayout android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
@@ -20,7 +19,7 @@
             android:id="@+id/listlol"
             android:layout_gravity="center_horizontal"/>
 
-        <!-- This image view is useless for now -->
+            />
         <ImageView
             android:id="@+id/list_image"
             android:layout_width="50dip"
@@ -28,6 +27,30 @@
 
     </LinearLayout>
 
+    <!-- Title Of Song-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Rihanna Love the way lie"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="15dip"
+        android:textStyle="bold"/>
+
+    <!-- Artist Name -->
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:textColor="#343434"
+        android:textSize="10dip"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Just gona stand there and ..." />
 
 
 

@@ -2,17 +2,27 @@ package qzd919.recipist;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class ResultPage extends AppCompatActivity {
@@ -20,7 +30,6 @@ public class ResultPage extends AppCompatActivity {
     public ArrayList<String> reci_list = new ArrayList<String>();
     public ArrayList<String> name_list = new ArrayList<String>();
     //ImageView image = (ImageView)findViewById(R.id.list_image);
-    // the image view didn't work properly on a list
  /*  public static Drawable LoadImageFromWebOperations(String url) {
         try {
             InputStream is = (InputStream) new URL(url).getContent();
@@ -38,26 +47,25 @@ public class ResultPage extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
         String Array = b.getString("RawJSON");
-        //Log.d("Array", Array);
+        Log.d("SUCK<MYEW", Array);
         JSONArray obj = null;
+
+
+
 
         try {
             obj = new JSONArray(Array);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //if we were to store whole thing into a string use this
         //String n = obj.getString("");
         for (int i = 0; i < obj.length(); i++){
             try {
                 JSONObject recp = new JSONObject(obj.getString(i));
-                //Log.d("OMGGG", recp.getString("Name"));
+                Log.d("OMGGG", recp.getString("Name"));
                 reci_list.add(recp.getString("url"));
                 name_list.add(recp.getString("Name"));
-                //url and name into array
                 //new DownloadImageTask((ImageView) findViewById(R.id.list_image)).execute(MY_URL_STRING);
-                //image too complicated to load into a list, not enough time to finish
-                // this method also slows down UI thread by like 3 seconds
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -69,8 +77,8 @@ public class ResultPage extends AppCompatActivity {
         listView_thingy.setAdapter(urlAdapter);
         listView_thingy.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) { //used chrome to open up url from json because app built in browser too slow
-                String urlString=reci_list.get(position); //since position is give by clicklistener we can use this to find our stored url in the array
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String urlString=reci_list.get(position);
                 Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setPackage("com.android.chrome");
@@ -85,8 +93,6 @@ public class ResultPage extends AppCompatActivity {
         });
 
     }
-    // this uses bitmap and asynctask, not sure how I would incorporate this into the for loop for parsing
-    //causes crash when run outside async
     /*private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 

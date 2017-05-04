@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="5dip" >
-    <!--  sadly couldn't get this ideal layout to workout -->
-    <!--  pic on left -->
+
+    <!--  ListRow Left sied Thumbnail image -->
     <LinearLayout android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,49 +13,34 @@
         android:layout_alignParentLeft="true"
         android:layout_marginRight="5dip">
 
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:id="@id/list_image"
+            android:layout_gravity="center_horizontal"/>
+
+
         <ImageView
             android:id="@+id/list_image"
-            android:layout_width="50dip"
-            android:layout_height="50dip"></ImageView>
+            android:layout_width="98dp"
+            android:layout_height="50dip" />
 
     </LinearLayout>
 
+    <!-- RECIPE NAME-->
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
-        android:text="Banana Cream Bread"
+        android:hint="Name"
         android:textColor="#040404"
         android:typeface="sans"
         android:textSize="15dip"
         android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/URL"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/name"
-        android:textColor="#343434"
-        android:textSize="10dip"
-        android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:text="URL" />
-
-    <!-- Allergy warnings? -->
-    <TextView
-        android:id="@+id/duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/name"
-        android:gravity="right"
-        android:text=""
-        android:layout_marginRight="5dip"
-        android:textSize="10dip"
-        android:textColor="#10bcc9"
-        android:textStyle="bold"/>
 
 
 </RelativeLayout>

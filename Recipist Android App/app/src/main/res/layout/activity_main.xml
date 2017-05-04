@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="qzd919.recipist.MainActivity"
-    android:background="@drawable/timg">
+    tools:context="qzd919.recipist.MainActivity">
 
     <EditText
         android:id="@+id/ingredientText"
