@@ -388,8 +388,8 @@ insert into recipes values (370, 'Cajun-Spiced Popcorn', 'http://images.media-al
 insert into recipes values (371, 'Southern Chess Squares', 'http://images.media-allrecipes.com/userphotos/560x315/4103585.jpg', 'http://allrecipes.com/recipe/21681/southern-chess-squares/');
 insert into recipes values (372, 'Dry Onion Soup Mix', 'http://images.media-allrecipes.com/userphotos/250x250/877716.jpg', 'http://allrecipes.com/recipe/217155/dry-onion-soup-mix/');
 insert into recipes values (373, 'American Lasagna', 'http://images.media-allrecipes.com/userphotos/600x600/566639.jpg', 'http://allrecipes.com/recipe/11729/american-lasagna/');
-insert into recipes values (375, 'Banana Sour Cream Bread', 'http://images.media-allrecipes.com/userphotos/720x405/262277.jpg', 'http://allrecipes.com/recipe/6984/banana-sour-cream-bread/');
-insert into recipes values (376, 'Sweet Potato Chili', 'http://images.media-allrecipes.com/userphotos/720x405/903799.jpg', 'http://allrecipes.com/recipe/229081/sweet-potato-chili/');*/
+insert into recipes values (374, 'Banana Sour Cream Bread', 'http://images.media-allrecipes.com/userphotos/720x405/262277.jpg', 'http://allrecipes.com/recipe/6984/banana-sour-cream-bread/');
+insert into recipes values (375, 'Sweet Potato Chili', 'http://images.media-allrecipes.com/userphotos/720x405/903799.jpg', 'http://allrecipes.com/recipe/229081/sweet-potato-chili/');*/
 
 
 insert into ingredients values (1, 'vegetable oil');
