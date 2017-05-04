@@ -25,6 +25,7 @@ insert into recipes values (7, 'Simple Garlic Shrimp', 'http://images.media-allr
 insert into recipes values (8, 'Slow Cooker Salsa Chicken', 'http://images.media-allrecipes.com/userphotos/560x315/1096403.jpg', 'http://allrecipes.com/recipe/236128/slow-cooker-salsa-chicken/');
 insert into recipes values (9, 'Asia Orange Chicken', 'http://images.media-allrecipes.com/userphotos/560x315/1207689.jpg', 'http://allrecipes.com/recipe/61024/asian-orange-chicken/');
 insert into recipes values (10, 'Oven-Roasted Asparagus', 'http://images.media-allrecipes.com/userphotos/560x315/1001600.jpg', 'http://allrecipes.com/recipe/214931/oven-roasted-asparagus/');
+
 insert into ingredients values (1, 'onion');
 insert into ingredients values (2, 'garlic');
 insert into ingredients values (3, 'basil');
