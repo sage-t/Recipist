@@ -27,7 +27,7 @@ class StaticPagesController < ApplicationController
     # Create search URL
     tmp_url = 'http://recipist-csci3308.herokuapp.com/search?ingrds='
     @ingredients.each do |ingr|
-      tmp_url += ingr + ','
+      tmp_url += ingr.downcase + ','
     end
 
     url = URI.parse(tmp_url)
