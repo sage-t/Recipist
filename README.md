@@ -17,6 +17,9 @@
 * /Server/recipe_web_crawler/ contains a web crawler script that aggregates recipes from the internet to be used in the API
 * /src/ contains the old Android App source
 
+## Testing
+Testing can be found in the /Acceptance Tests/ directory
+
 ## Description
 Recipist is a Web and Android application that helps college students find 
 recipes to make using the ingredients that they currently have. The app records
